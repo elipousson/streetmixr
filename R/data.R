@@ -1,10 +1,13 @@
-#' StreetMix Illustrations
+#' Streetmix CC-BY-SA illustrations
 #'
-#' Data frame with links to SVG files with StreetMix illustrations <https://github.com/streetmix/illustrations>
+#' Data frame with links to SVG files with StreetMix illustrations
+#' <https://github.com/streetmix/illustrations>
 #'
-#' Illustrations available under an attribution-share alike license <https://github.com/streetmix/illustrations/blob/main/LICENSE>
+#' Illustrations available under an attribution-share alike license
+#' <https://github.com/streetmix/illustrations/blob/main/LICENSE>
 #'
-#' For design guidelines and colors see the illustration guide <https://docs.streetmix.net/contributing/illustrations/design-principles>
+#' For design guidelines and colors see the illustration guide
+#' <https://docs.streetmix.net/contributing/illustrations/design-principles>
 #'
 #' @format A data frame with 257 rows and 6 variables:
 #' \describe{

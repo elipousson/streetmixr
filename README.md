@@ -10,9 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 <!-- badges: end -->
 
-The goal of streetmixr is to provide access to the Streetmix API along
-with utility functions that support visualization of street segment
-data. Streetmix uses [the Axios
+The goal of streetmixr is to provide access to the Streetmix API.
+Streetmix uses [the Axios
 library](https://docs.streetmix.net/contributing/code/reference/helpers)
 to support the following:
 
@@ -31,6 +30,8 @@ This package also provides an index of the [Streetmix
 illustrations](https://github.com/streetmix/illustrations/) available
 under a [CC-BY-SA
 license](https://github.com/streetmix/illustrations/blob/main/LICENSE).
+I also hope to develop some utility functions to support visualization
+of street segment data and add them to this package in the future.
 
 ## Installation
 

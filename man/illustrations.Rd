@@ -3,7 +3,7 @@
 \docType{data}
 \name{illustrations}
 \alias{illustrations}
-\title{StreetMix Illustrations}
+\title{Streetmix CC-BY-SA illustrations}
 \format{
 A data frame with 257 rows and 6 variables:
 \describe{
@@ -19,11 +19,14 @@ A data frame with 257 rows and 6 variables:
 illustrations
 }
 \description{
-Data frame with links to SVG files with StreetMix illustrations \url{https://github.com/streetmix/illustrations}
+Data frame with links to SVG files with StreetMix illustrations
+\url{https://github.com/streetmix/illustrations}
 }
 \details{
-Illustrations available under an attribution-share alike license \url{https://github.com/streetmix/illustrations/blob/main/LICENSE}
+Illustrations available under an attribution-share alike license
+\url{https://github.com/streetmix/illustrations/blob/main/LICENSE}
 
-For design guidelines and colors see the illustration guide \url{https://docs.streetmix.net/contributing/illustrations/design-principles}
+For design guidelines and colors see the illustration guide
+\url{https://docs.streetmix.net/contributing/illustrations/design-principles}
 }
 \keyword{datasets}
