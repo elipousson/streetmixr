@@ -1,0 +1,16 @@
+Package: streetmixr
+Type: Package
+Title: Use and (Possibly) Interact with Streetmix
+Version: 0.1.0
+Authors@R: 
+    person("Eli", "Pousson", , "eli.pousson@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8280-1706"))
+Description: Making data about Streetmix illustrations and components available for analysis or reuse (consistent with license requirements).
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.1.2
+Imports: 
+    httr2
