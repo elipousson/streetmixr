@@ -10,8 +10,8 @@ get_repo_svg <- function(repo, branch = "main") {
 
   data.frame(
     "path" = unlist(lapply(content(req)$tree, function(x) x$path))
-  ) |>
-    filter(str_detect(path, "\\.svg$")) |>
+  ) %>%
+    filter(str_detect(path, "\\.svg$")) %>%
     transmute(
       repo = repo,
       name = str_extract(path, "(?<=/)[:graph:]+(?=.svg$)"),
@@ -20,8 +20,8 @@ get_repo_svg <- function(repo, branch = "main") {
 }
 
 illustrations <-
-  get_repo_svg(repo = "streetmix/illustrations") |>
-  tidyr::separate(col = "name", sep = "/", into = c("category", "name"), fill = "left") |>
+  get_repo_svg(repo = "streetmix/illustrations") %>%
+  tidyr::separate(col = "name", sep = "/", into = c("category", "name"), fill = "left") %>%
   mutate(
     #    category = str_extract(name, ".+(?=/)"),
     side = case_when(
@@ -32,7 +32,7 @@ illustrations <-
       str_detect(name, "inbound") ~ "inbound",
       str_detect(name, "outbound") ~ "outbound"
     )
-  ) |>
+  ) %>%
   filter(name != "_retired")
 
 usethis::use_data(illustrations, overwrite = TRUE)

@@ -16,12 +16,15 @@
     <loc>/reference/get_street.html</loc>
   </url>
   <url>
-    <loc>/reference/hello.html</loc>
-  </url>
-  <url>
     <loc>/reference/illustrations.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/people.html</loc>
+  </url>
+  <url>
+    <loc>/reference/streetmixr-package.html</loc>
   </url>
 </urlset>

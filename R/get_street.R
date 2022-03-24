@@ -69,18 +69,18 @@ req_streetmix <- function(base_url = "https://streetmix.net",
                           template = NULL,
                           ...) {
   req <-
-    httr2::request(base_url) |>
+    httr2::request(base_url) %>%
     httr2::req_template(
       template = template,
       ...
-    ) |>
-    httr2::req_user_agent("streetmixr (https://elipousson.github.io/streetmixr)") |>
+    ) %>%
+    httr2::req_user_agent("streetmixr (https://elipousson.github.io/streetmixr)") %>%
     httr2::req_url_query(
       "config.transitional.forcedJSONParsing" = "false",
-    ) |>
+    ) %>%
     httr2::req_perform()
 
-  req |>
+  req %>%
     httr2::resp_body_json(simplifyVector = TRUE)
 }
 

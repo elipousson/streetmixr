@@ -66,11 +66,11 @@ example shows:
 
 ``` r
 # Example showing plot based on segment width
-street$segments |>
-  group_by(type) |>
+street$segments %>%
+  group_by(type) %>%
   summarise(
     pct_width = sum(width) / street$width
-  ) |>
+  ) %>%
   ggplot() +
   geom_col(aes(x = type, y = pct_width)) +
   scale_y_continuous(labels = scales::label_percent()) +
@@ -85,11 +85,11 @@ the [{ggsvg} package](https://github.com/coolbutuseless/ggsvg) to
 display the illustrations in their approximate positions:
 
 ``` r
-street$segments |> 
-  left_join(illustrations, by = c("type" = "name")) |> 
+street$segments %>% 
+  left_join(illustrations, by = c("type" = "name")) %>% 
   mutate(
     position = cumsum(width)
-  ) |> 
+  ) %>% 
   ggplot() +
   ggsvg::geom_point_svg(
     mapping = aes(x = position, y = 0, svg = url), size = 18
@@ -107,8 +107,8 @@ You can also get streets by user id or download a selection of recent
 streets using the \`count\` parameter:
 
 ``` r
-get_street(user_id = "eli.pousson")$streets |> 
-  select(-c(creatorIp, data)) |> 
+get_street(user_id = "eli.pousson")$streets %>% 
+  select(-c(creatorIp, data)) %>% 
   knitr::kable()
 ```
 
