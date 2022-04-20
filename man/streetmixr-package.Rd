@@ -8,6 +8,15 @@
 \description{
 Making data about Streetmix illustrations and components available for analysis or reuse (consistent with license requirements).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/elipousson/streetmixr}
+  \item \url{https://elipousson.github.io/streetmixr/}
+  \item Report bugs at \url{https://github.com/elipousson/streetmixr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Eli Pousson \email{eli.pousson@gmail.com} (\href{https://orcid.org/0000-0001-8280-1706}{ORCID})
 
