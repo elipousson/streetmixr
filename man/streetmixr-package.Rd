@@ -4,9 +4,9 @@
 \name{streetmixr-package}
 \alias{streetmixr}
 \alias{streetmixr-package}
-\title{streetmixr: Use and (Possibly) Interact with Streetmix}
+\title{streetmixr: Access the Streetmix API}
 \description{
-Making data about Streetmix illustrations and components available for analysis or reuse (consistent with license requirements).
+Support access to the Streetmix API and share data on Streetmix illustrations and components for analysis or reuse (consistent with license requirements).
 }
 \seealso{
 Useful links:

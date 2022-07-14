@@ -22,12 +22,21 @@ knitr::opts_chunk$set(
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 <!-- badges: end -->
 
-The goal of streetmixr is to provide access to the Streetmix API. Streetmix uses [the Axios
+The goal of streetmixr is to provide access to the Streetmix API. What
+is Streetmix? [Streetmix](https://streetmix.net/) is a web-based
+open-source tool that enables people to "design, remix, and share"
+street designs. Users can "add bike paths, widen sidewalks or traffic
+lanes" and learn how street design impacts communities.
+
+Streetmix uses [the Axios
 library](https://docs.streetmix.net/contributing/code/reference/helpers)
-to support the following:
+to support the following end-points:
 
 -   getStreet,
 -   deleteStreetImage
@@ -37,20 +46,32 @@ to support the following:
 -   postSentimentSurveyVote
 -   putSentimentSurveyComment
 
-The get_streets function supports getStreet, getGalleryForUser, and
-getGalleryForAllStreets.
+The get_streets function supports getStreet (using url or street_id),
+getGalleryForUser (using user_id), and getGalleryForAllStreets (using
+the count parameter).
 
 This package also provides an index of the [Streetmix
 illustrations](https://github.com/streetmix/illustrations/) available
 under a [CC-BY-SA
-license](https://github.com/streetmix/illustrations/blob/main/LICENSE). I also hope to develop some utility functions to support visualization of street segment data and add them to this package in the future.
+license](https://github.com/streetmix/illustrations/blob/main/LICENSE).
+I also hope to develop some utility functions to support visualization
+of street segment data and add them to this package in the future.
+
+Issues, pull requests, or feedback are all welcome.
+
+Note that this package is an independent project by me, Eli Pousson, and
+is not directly sponsored or supported by the Streetmix development
+team. Please consider supporting the Streetmix project [on
+OpenCollective](https://opencollective.com/streetmix) or by signing up
+for the new [Streetmix+ subscription
+service](https://docs.streetmix.net/user-guide/streetmix-plus/).
 
 ## Installation
 
 You can install the development version of streetmixr like so:
 
 ``` r
-# remotes::install_github("elipousson/streetmixr")
+# pak::pkg_install("elipousson/streetmixr")
 ```
 
 ## Example
@@ -94,13 +115,16 @@ This data can also be combined with the illustration. This example uses
 the [{ggsvg} package](https://github.com/coolbutuseless/ggsvg) to
 display the illustrations in their approximate positions:
 
-```{r illustrations}
-street$segments %>% 
+```{r illustrations, eval = FALSE}
+segments <- street$segments %>% 
   left_join(illustrations, by = c("type" = "name")) %>% 
   mutate(
     position = cumsum(width)
-  ) %>% 
-  ggplot() +
+  )
+
+segments$url <- sapply(segments$url, function(x) {paste(readLines(x), collapse = "\n")})
+
+ggplot(data = segments) +
   ggsvg::geom_point_svg(
     mapping = aes(x = position, y = 0, svg = url), size = 18
   ) +
@@ -120,5 +144,3 @@ get_street(user_id = "eli.pousson")$streets %>%
   select(-c(creatorIp, data)) %>% 
   knitr::kable()
 ```
-
-Issues, pull requests, or feedback are all welcome. Please consider supporting the Streetmix project [on OpenCollective](https://opencollective.com/streetmix) or by signing up for the new [Streetmix+ subscription service](https://docs.streetmix.net/user-guide/streetmix-plus/).
