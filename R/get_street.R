@@ -26,36 +26,34 @@ get_street <- function(url = NULL,
         creatorId = creatorId
       )
 
-    if (!is.null(return)) {
-
-      return <- match.arg(return, c("data", "street", "location", "segments"))
-
-      data <-
-        switch(return,
-          "data" = data$data,
-          "street" = data$data$street,
-          "location" = data$data$street$location,
-          "segments" = data$data$street$segments
-        )
+    if (is.null(return)) {
+      return(data)
     }
+
+    return <- match.arg(return, c("data", "street", "location", "segments"))
+
+    switch(return,
+      "data" = data$data,
+      "street" = data$data$street,
+      "location" = data$data$street$location,
+      "segments" = data$data$street$segments
+    )
   } else if (!is.null(user_id)) {
-    data <- req_streetmix(
+    req_streetmix(
       template = "api/v1/users/{user_id}/streets/",
       user_id = user_id
     )
   } else if (!is.null(street_id)) {
-    data <- req_streetmix(
+    req_streetmix(
       template = "api/v1/streets/{street_id}/",
       street_id = street_id
     )
   } else if (!is.null(count)) {
-    data <- req_streetmix(
+    req_streetmix(
       template = "api/v1/streets?count={count}",
       count = count
     )
   }
-
-  return(data)
 }
 
 #' Create an HTTP request for the Streetmix API
@@ -83,4 +81,3 @@ req_streetmix <- function(base_url = "https://streetmix.net",
   req %>%
     httr2::resp_body_json(simplifyVector = TRUE)
 }
-
