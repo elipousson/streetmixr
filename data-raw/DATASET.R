@@ -35,4 +35,3 @@ complete_streets_rule <-
 
 complete_streets_rule <-
   jsonlite::read_json(complete_streets_rule, simplifyVector = TRUE)
-

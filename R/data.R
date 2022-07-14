@@ -17,7 +17,7 @@
 #'   \item{\code{category}}{category/folder}
 #'   \item{\code{side}}{facing side (left or right)}
 #'   \item{\code{direction}}{direction of movement (inbound or outbound)}
-#'}
+#' }
 #' @md
 "illustrations"
 
@@ -31,5 +31,5 @@
 #'   \item{\code{name}}{image name}
 #'   \item{\code{disallowFirst}}{logical}
 #'   \item{\code{weight}}{integer}
-#'}
+#' }
 "people"

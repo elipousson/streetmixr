@@ -13,5 +13,3 @@ test_that("get_street works", {
   expect_type(get_street(street_id = test_street_id), "list")
   expect_type(get_street(count = test_count), "list")
 })
-
-
