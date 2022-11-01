@@ -1,8 +1,8 @@
-pandoc: 2.14.2
-pkgdown: 2.0.5
+pandoc: 2.19.2
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-07-14T18:50Z
+last_built: 2022-11-01T01:51Z
 urls:
   reference: https://elipousson.github.io/streetmixr/reference
   article: https://elipousson.github.io/streetmixr/articles
