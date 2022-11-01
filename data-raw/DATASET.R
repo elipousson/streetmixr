@@ -28,7 +28,6 @@ capacity <-
 capacity <-
   jsonlite::read_json(capacity, simplifyVector = TRUE)
 
-
 complete_streets_rule <-
   "https://raw.githubusercontent.com/d-wasserman/Complete_Street_Rule/main/data/confDashboard-v2-Complete_Street_Scenarios_2020.txt"
 

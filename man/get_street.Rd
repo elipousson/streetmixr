@@ -22,7 +22,7 @@ get_street(
 \item{count}{Count of streets to return}
 
 \item{return}{Type of data to return based on url: "data", "street",
-"location", or "segments". If NULL, return full response.}
+"location", or "segments". If \code{NULL}, return full response.}
 }
 \description{
 Get data on a Streetmix street

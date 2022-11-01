@@ -7,11 +7,11 @@
 \format{
 A data frame with 36 rows and 5 variables:
 \describe{
-  \item{\code{id}}{image id}
-  \item{\code{width}}{image width}
-  \item{\code{name}}{image name}
-  \item{\code{disallowFirst}}{logical}
-  \item{\code{weight}}{integer}
+\item{\code{id}}{image id}
+\item{\code{width}}{image width}
+\item{\code{name}}{image name}
+\item{\code{disallowFirst}}{logical}
+\item{\code{weight}}{integer}
 }
 }
 \usage{

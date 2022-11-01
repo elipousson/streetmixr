@@ -6,7 +6,7 @@
 #' @param street_id Streetmix street ID
 #' @param count Count of streets to return
 #' @param return Type of data to return based on url: "data", "street",
-#'   "location", or "segments". If NULL, return full response.
+#'   "location", or "segments". If `NULL`, return full response.
 #' @export
 #' @importFrom httr2 url_parse
 get_street <- function(url = NULL,

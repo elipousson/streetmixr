@@ -9,16 +9,15 @@
 #' For design guidelines and colors see the illustration guide
 #' <https://docs.streetmix.net/contributing/illustrations/design-principles>
 #'
-#' @format A data frame with 257 rows and 6 variables:
+#' @format A data frame with 254 rows and 6 variables:
 #' \describe{
-#'   \item{\code{repo}}{repository}
-#'   \item{\code{name}}{illustration name}
-#'   \item{\code{url}}{SVG file url}
-#'   \item{\code{category}}{category/folder}
-#'   \item{\code{side}}{facing side (left or right)}
-#'   \item{\code{direction}}{direction of movement (inbound or outbound)}
+#'   \item{`repo`}{repository}
+#'   \item{`name`}{illustration name}
+#'   \item{`url`}{SVG file url}
+#'   \item{`category`}{category/folder}
+#'   \item{`side`}{facing side (left or right)}
+#'   \item{`direction`}{direction of movement (inbound or outbound)}
 #' }
-#' @md
 "illustrations"
 
 
@@ -26,10 +25,18 @@
 #'
 #' @format A data frame with 36 rows and 5 variables:
 #' \describe{
-#'   \item{\code{id}}{image id}
-#'   \item{\code{width}}{image width}
-#'   \item{\code{name}}{image name}
-#'   \item{\code{disallowFirst}}{logical}
-#'   \item{\code{weight}}{integer}
+#'   \item{`id`}{image id}
+#'   \item{`width`}{image width}
+#'   \item{`name`}{image name}
+#'   \item{`disallowFirst`}{logical}
+#'   \item{`weight`}{integer}
 #' }
 "people"
+
+
+#' Streetmix components
+#'
+#' @format A length 4 nested list with specifications for lanes, markings,
+#'   objects, and vehicles.
+"components"
+

@@ -5,7 +5,7 @@
 \alias{illustrations}
 \title{Streetmix CC-BY-SA illustrations}
 \format{
-A data frame with 257 rows and 6 variables:
+A data frame with 254 rows and 6 variables:
 \describe{
 \item{\code{repo}}{repository}
 \item{\code{name}}{illustration name}
