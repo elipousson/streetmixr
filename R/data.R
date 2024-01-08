@@ -1,5 +1,8 @@
 #' Streetmix CC-BY-SA illustrations
 #'
+#' @description
+#' Last updated: 2024-01-08
+#'
 #' Data frame with links to SVG files with StreetMix illustrations
 #' <https://github.com/streetmix/illustrations>
 #'
@@ -9,7 +12,7 @@
 #' For design guidelines and colors see the illustration guide
 #' <https://docs.streetmix.net/contributing/illustrations/design-principles>
 #'
-#' @format A data frame with 254 rows and 6 variables:
+#' @format A data frame with 273 rows and 8 variables:
 #' \describe{
 #'   \item{`repo`}{repository}
 #'   \item{`name`}{illustration name}
@@ -17,11 +20,16 @@
 #'   \item{`category`}{category/folder}
 #'   \item{`side`}{facing side (left or right)}
 #'   \item{`direction`}{direction of movement (inbound or outbound)}
+#'   \item{`orientation`}{orientation (parallel, perpendicular, sideways, or angled)}
+#'   \item{`width_type`}{building width type (narrow or wide)}
 #' }
+#' @source <https://github.com/streetmix/illustrations>
 "illustrations"
 
-
 #' Streetmix CC-BY-SA illustrations of people
+#'
+#' @description
+#' Last updated: 2024-01-08
 #'
 #' @format A data frame with 36 rows and 5 variables:
 #' \describe{
@@ -31,12 +39,16 @@
 #'   \item{`disallowFirst`}{logical}
 #'   \item{`weight`}{integer}
 #' }
+#' @source <https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/people.json>
 "people"
 
 
 #' Streetmix components
 #'
-#' @format A length 4 nested list with specifications for lanes, markings,
+#' @description
+#' Last updated: 2024-01-08
+#'
+#' @format A length 5 nested list with specifications for lanes, markings,
 #'   objects, and vehicles.
+#' @source <https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/components.json>
 "components"
-

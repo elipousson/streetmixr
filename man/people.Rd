@@ -14,10 +14,13 @@ A data frame with 36 rows and 5 variables:
 \item{\code{weight}}{integer}
 }
 }
+\source{
+\url{https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/people.json}
+}
 \usage{
 people
 }
 \description{
-Streetmix CC-BY-SA illustrations of people
+Last updated: 2024-01-08
 }
 \keyword{datasets}

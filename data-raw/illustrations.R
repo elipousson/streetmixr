@@ -1,4 +1,3 @@
-
 library(httr)
 library(dplyr)
 library(stringr)
@@ -19,8 +18,10 @@ get_repo_svg <- function(repo, branch = "main") {
     )
 }
 
-illustrations <-
-  get_repo_svg(repo = "streetmix/illustrations") %>%
+illustrations_repo <- get_repo_svg(repo = "streetmix/illustrations")
+
+illustrations <- illustrations_repo %>%
+  filter(!str_detect(name, "_retired")) |>
   tidyr::separate(col = "name", sep = "/", into = c("category", "name"), fill = "left") %>%
   mutate(
     #    category = str_extract(name, ".+(?=/)"),
@@ -31,8 +32,17 @@ illustrations <-
     direction = case_when(
       str_detect(name, "inbound") ~ "inbound",
       str_detect(name, "outbound") ~ "outbound"
+    ),
+    orientation = case_when(
+      str_detect(name, "parallel") ~ "parallel",
+      str_detect(name, "perpendicular") ~ "perpendicular",
+      str_detect(name, "sideways") ~ "sideways",
+      str_detect(name, "angled") ~ "angled"
+    ),
+    width_type = case_when(
+      str_detect(name, "narrow") ~ "narrow",
+      str_detect(name, "wide") ~ "wide"
     )
-  ) %>%
-  filter(name != "_retired")
+  )
 
 usethis::use_data(illustrations, overwrite = TRUE)

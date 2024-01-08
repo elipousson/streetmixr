@@ -5,7 +5,7 @@
 \alias{illustrations}
 \title{Streetmix CC-BY-SA illustrations}
 \format{
-A data frame with 254 rows and 6 variables:
+A data frame with 273 rows and 8 variables:
 \describe{
 \item{\code{repo}}{repository}
 \item{\code{name}}{illustration name}
@@ -13,16 +13,22 @@ A data frame with 254 rows and 6 variables:
 \item{\code{category}}{category/folder}
 \item{\code{side}}{facing side (left or right)}
 \item{\code{direction}}{direction of movement (inbound or outbound)}
+\item{\code{orientation}}{orientation (parallel, perpendicular, sideways, or angled)}
+\item{\code{width_type}}{building width type (narrow or wide)}
 }
+}
+\source{
+\url{https://github.com/streetmix/illustrations}
 }
 \usage{
 illustrations
 }
 \description{
+Last updated: 2024-01-08
+
 Data frame with links to SVG files with StreetMix illustrations
 \url{https://github.com/streetmix/illustrations}
-}
-\details{
+
 Illustrations available under an attribution-share alike license
 \url{https://github.com/streetmix/illustrations/blob/main/LICENSE}
 

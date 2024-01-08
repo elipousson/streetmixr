@@ -20,7 +20,7 @@ people <-
 people <-
   jsonlite::read_json(people, simplifyVector = TRUE)
 
-# usethis::use_data(people, overwrite = TRUE)
+usethis::use_data(people, overwrite = TRUE)
 
 capacity <-
   "https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/capacity.json"
@@ -30,7 +30,6 @@ capacity <-
 
 complete_streets_rule <-
   "https://raw.githubusercontent.com/d-wasserman/Complete_Street_Rule/main/data/confDashboard-v2-Complete_Street_Scenarios_2020.txt"
-
 
 complete_streets_rule <-
   jsonlite::read_json(complete_streets_rule, simplifyVector = TRUE)
