@@ -103,7 +103,8 @@
 <span><span class="va">street</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="reference/get_street.html">get_street</a></span><span class="op">(</span></span>
 <span>    url <span class="op">=</span> <span class="st">"https://streetmix.net/eli.pousson/6/harford-road-south-of-gorsuch-avenue-1950s"</span>,</span>
-<span>    return <span class="op">=</span> <span class="st">"street"</span><span class="op">)</span></span></code></pre></div>
+<span>    return <span class="op">=</span> <span class="st">"street"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p>The segment data for a street can be analyzed or plotted, as this example shows:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Example showing plot based on segment width</span></span>
@@ -112,35 +113,41 @@
 <span>  <span class="fu">summarise</span><span class="op">(</span></span>
 <span>    pct_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">width</span><span class="op">)</span> <span class="op">/</span> <span class="va">street</span><span class="op">$</span><span class="va">width</span></span>
 <span>  <span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_col</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">type</span>, y <span class="op">=</span> <span class="va">pct_width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu">label_percent</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_minimal</span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_col</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">type</span>, y <span class="op">=</span> <span class="va">pct_width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_percent.html" class="external-link">label_percent</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-plot-1.png" width="100%"></p>
 <p>This data can also be combined with the illustration. This example uses the <a href="https://github.com/coolbutuseless/ggsvg" class="external-link">{ggsvg} package</a> to display the illustrations in their approximate positions:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">segments</span> <span class="op">&lt;-</span> <span class="va">street</span><span class="op">$</span><span class="va">segments</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">left_join</span><span class="op">(</span><span class="va">illustrations</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"type"</span> <span class="op">=</span> <span class="st">"name"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="va">segments</span> <span class="op">&lt;-</span> <span class="va">street</span><span class="op">$</span><span class="va">segments</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">left_join</span><span class="op">(</span><span class="va">illustrations</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"type"</span> <span class="op">=</span> <span class="st">"name"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span></span>
 <span>    position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="va">width</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">segments</span><span class="op">$</span><span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">segments</span><span class="op">$</span><span class="va">url</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span><span class="op">}</span><span class="op">)</span></span>
+<span><span class="va">segments</span><span class="op">$</span><span class="va">url</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">segments</span><span class="op">$</span><span class="va">url</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">segments</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggsvg</span><span class="fu">::</span><span class="fu">geom_point_svg</span><span class="op">(</span></span>
-<span>    mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">position</span>, y <span class="op">=</span> <span class="fl">0</span>, svg <span class="op">=</span> <span class="va">url</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">18</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">segments</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggsvg</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggsvg/man/geom_point_svg.html" class="external-link">geom_point_svg</a></span><span class="op">(</span></span>
+<span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">position</span>, y <span class="op">=</span> <span class="va">elevation</span> <span class="op">/</span> <span class="fl">4</span>, svg <span class="op">=</span> <span class="va">url</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">18</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span>
+<span>    limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="va">street</span><span class="op">$</span><span class="va">location</span><span class="op">$</span><span class="va">label</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Illustrations courtesy Streetmix (CC-BY-SA-4.0)"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-illustrations-1.png" width="100%"></p>
 <p>You can also get streets by user id or download a selection of recent streets using the `count` parameter:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/get_street.html">get_street</a></span><span class="op">(</span>user_id <span class="op">=</span> <span class="st">"eli.pousson"</span><span class="op">)</span><span class="op">$</span><span class="va">streets</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">creatorIp</span>, <span class="va">data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/get_street.html">get_street</a></span><span class="op">(</span>user_id <span class="op">=</span> <span class="st">"eli.pousson"</span><span class="op">)</span><span class="op">$</span><span class="va">streets</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">creatorIp</span>, <span class="va">data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -167,6 +174,50 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">2c3905bf-1729-492b-8741-e5ad1298a4b6</td>
+<td align="right">10</td>
+<td align="left">ACTIVE</td>
+<td align="left">Harford Road south of Gorsuch Avenue (1950s)</td>
+<td align="left">eli.pousson</td>
+<td align="left">587bc700-3159-11ec-896a-75aec116883c</td>
+<td align="left">2021-10-20T03:58:55.769Z</td>
+<td align="left">2023-10-19T20:37:28.278Z</td>
+<td align="left">2023-10-19T20:37:28.420Z</td>
+</tr>
+<tr class="even">
+<td align="left">587bc700-3159-11ec-896a-75aec116883c</td>
+<td align="right">6</td>
+<td align="left">ACTIVE</td>
+<td align="left">Harford Road south of Gorsuch Avenue (1950s)</td>
+<td align="left">eli.pousson</td>
+<td align="left">32bfe550-3159-11ec-896a-75aec116883c</td>
+<td align="left">2021-10-20T03:58:55.769Z</td>
+<td align="left">2021-10-20T03:53:54.809Z</td>
+<td align="left">2023-07-31T14:22:04.892Z</td>
+</tr>
+<tr class="odd">
+<td align="left">48094c9a-d019-4495-b183-df202da0f2d9</td>
+<td align="right">9</td>
+<td align="left">ACTIVE</td>
+<td align="left">Sample Mixed Use Path with Green Space</td>
+<td align="left">eli.pousson</td>
+<td align="left">13b8567a-223d-4fde-a7ed-100375e1ddc9</td>
+<td align="left">2023-05-04T19:42:15.333Z</td>
+<td align="left">2023-07-31T14:21:52.653Z</td>
+<td align="left">2023-07-31T14:21:52.812Z</td>
+</tr>
+<tr class="even">
+<td align="left">13b8567a-223d-4fde-a7ed-100375e1ddc9</td>
+<td align="right">8</td>
+<td align="left">ACTIVE</td>
+<td align="left">Sample Mixed Use Path with Green Space</td>
+<td align="left">eli.pousson</td>
+<td align="left">874d79aa-d56f-4930-a3bb-32bafdb9006a</td>
+<td align="left">2023-05-04T19:42:15.333Z</td>
+<td align="left">2023-05-04T17:29:57.796Z</td>
+<td align="left">2023-05-04T19:42:15.927Z</td>
+</tr>
+<tr class="odd">
 <td align="left">b26529c0-c1ad-11ec-877c-abfad556cfc6</td>
 <td align="right">7</td>
 <td align="left">ACTIVE</td>
@@ -178,17 +229,6 @@
 <td align="left">2022-04-28T18:59:48.282Z</td>
 </tr>
 <tr class="even">
-<td align="left">587bc700-3159-11ec-896a-75aec116883c</td>
-<td align="right">6</td>
-<td align="left">ACTIVE</td>
-<td align="left">Harford Road south of Gorsuch Avenue (1950s)</td>
-<td align="left">eli.pousson</td>
-<td align="left">32bfe550-3159-11ec-896a-75aec116883c</td>
-<td align="left">2021-10-20T03:58:55.769Z</td>
-<td align="left">2021-10-20T03:53:54.809Z</td>
-<td align="left">2021-10-20T03:58:56.384Z</td>
-</tr>
-<tr class="odd">
 <td align="left">32bfe550-3159-11ec-896a-75aec116883c</td>
 <td align="right">5</td>
 <td align="left">ACTIVE</td>
@@ -199,7 +239,7 @@
 <td align="left">2021-10-20T03:52:51.511Z</td>
 <td align="left">2021-10-20T03:52:51.654Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">7e06c6b0-4793-11eb-a7cc-b5a263b6bae7</td>
 <td align="right">4</td>
 <td align="left">ACTIVE</td>
@@ -210,7 +250,7 @@
 <td align="left">2020-12-26T16:00:36.548Z</td>
 <td align="left">2020-12-26T16:00:37.959Z</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">46ce4c10-918e-11ea-98a3-a330b250095e</td>
 <td align="right">3</td>
 <td align="left">ACTIVE</td>
@@ -221,7 +261,7 @@
 <td align="left">2020-05-09T00:44:44.793Z</td>
 <td align="left">2020-05-09T00:44:45.273Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">88ee8bf0-90d5-11ea-946a-abc0544fc0fc</td>
 <td align="right">2</td>
 <td align="left">ACTIVE</td>
@@ -232,7 +272,7 @@
 <td align="left">2020-05-08T02:42:18.875Z</td>
 <td align="left">2020-05-09T00:33:46.378Z</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">33f06dd0-90d5-11ea-946a-abc0544fc0fc</td>
 <td align="right">1</td>
 <td align="left">ACTIVE</td>
