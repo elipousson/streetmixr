@@ -19,12 +19,13 @@ get_street <- function(url = NULL,
     creatorId <- strsplit(url$path, "/")[[1]][2]
     namespacedId <- strsplit(url$path, "/")[[1]][3]
 
-    data <-
-      req_streetmix(
-        template = "api/v1/streets/?namespacedId={namespacedId}&creatorId={creatorId}",
-        namespacedId = namespacedId,
-        creatorId = creatorId
-      )
+    data <- req_streetmix(
+      template = "api/v1/streets/?namespacedId={namespacedId}&creatorId={creatorId}",
+      namespacedId = namespacedId,
+      creatorId = creatorId
+    )
+
+    stopifnot(rlang::is_string(return) || is.null(return))
 
     if (is.null(return)) {
       return(data)
@@ -65,7 +66,9 @@ get_street <- function(url = NULL,
 #' @importFrom httr2 request req_template req_user_agent req_url_query req_perform resp_body_json
 req_streetmix <- function(base_url = "https://streetmix.net",
                           template = NULL,
-                          ...) {
+                          ...,
+                          simplifyVector = TRUE,
+                          error_call = caller_env()) {
   req <-
     httr2::request(base_url) %>%
     httr2::req_template(
@@ -76,8 +79,9 @@ req_streetmix <- function(base_url = "https://streetmix.net",
     httr2::req_url_query(
       "config.transitional.forcedJSONParsing" = "false",
     ) %>%
-    httr2::req_perform()
+    httr2::req_perform(
+      error_call = error_call
+    )
 
-  req %>%
-    httr2::resp_body_json(simplifyVector = TRUE)
+  httr2::resp_body_json(req, simplifyVector = simplifyVector)
 }
