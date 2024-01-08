@@ -91,7 +91,8 @@ a Streetmix url:
 street <-
   get_street(
     url = "https://streetmix.net/eli.pousson/6/harford-road-south-of-gorsuch-avenue-1950s",
-    return = "street")
+    return = "street"
+  )
 ```
 
 The segment data for a street can be analyzed or plotted, as this
@@ -115,32 +116,36 @@ This data can also be combined with the illustration. This example uses
 the [{ggsvg} package](https://github.com/coolbutuseless/ggsvg) to
 display the illustrations in their approximate positions:
 
-```{r illustrations, eval = FALSE}
-segments <- street$segments %>% 
-  left_join(illustrations, by = c("type" = "name")) %>% 
+```{r illustrations}
+segments <- street$segments %>%
+  left_join(illustrations, by = c("type" = "name")) %>%
   mutate(
     position = cumsum(width)
   )
 
-segments$url <- sapply(segments$url, function(x) {paste(readLines(x), collapse = "\n")})
+segments$url <- sapply(segments$url, function(x) {
+  paste(readLines(x), collapse = "\n")
+})
 
 ggplot(data = segments) +
   ggsvg::geom_point_svg(
-    mapping = aes(x = position, y = 0, svg = url), size = 18
+    mapping = aes(x = position, y = elevation / 4, svg = url), size = 18
+  ) +
+  scale_y_continuous(
+    limits = c(-1, 4)
   ) +
   labs(
     title = street$location$label,
     caption = "Illustrations courtesy Streetmix (CC-BY-SA-4.0)"
   ) +
   theme_minimal()
-
 ```
 
 You can also get streets by user id or download a selection of recent
 streets using the \`count\` parameter:
 
 ```{r user_id}
-get_street(user_id = "eli.pousson")$streets %>% 
-  select(-c(creatorIp, data)) %>% 
+get_street(user_id = "eli.pousson")$streets %>%
+  select(-c(creatorIp, data)) %>%
   knitr::kable()
 ```
