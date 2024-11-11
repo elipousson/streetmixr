@@ -15,12 +15,12 @@ A data frame with 36 rows and 5 variables:
 }
 }
 \source{
-\url{https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/people.json}
+\url{https://github.com/streetmix/streetmix/raw/refs/heads/main/client/src/segments/people.json}
 }
 \usage{
 people
 }
 \description{
-Last updated: 2024-01-08
+Last updated: 2024-11-10
 }
 \keyword{datasets}

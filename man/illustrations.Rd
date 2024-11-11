@@ -24,7 +24,7 @@ A data frame with 273 rows and 8 variables:
 illustrations
 }
 \description{
-Last updated: 2024-01-08
+Last updated: 2024-11-10
 
 Data frame with links to SVG files with StreetMix illustrations
 \url{https://github.com/streetmix/illustrations}

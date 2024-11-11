@@ -6,15 +6,15 @@
 \title{Streetmix components}
 \format{
 A length 5 nested list with specifications for lanes, markings,
-objects, and vehicles.
+objects, vehicles, and effects.
 }
 \source{
-\url{https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/components.json}
+\url{https://github.com/streetmix/streetmix/raw/refs/heads/main/client/src/segments/components.json}
 }
 \usage{
 components
 }
 \description{
-Last updated: 2024-01-08
+Last updated: 2024-11-10
 }
 \keyword{datasets}

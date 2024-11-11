@@ -1,7 +1,7 @@
 ## code to prepare `DATASET` dataset goes here
 
 components <-
-  "https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/components.json"
+  "https://github.com/streetmix/streetmix/raw/refs/heads/main/client/src/segments/components.json"
 
 components <-
   jsonlite::read_json(components, simplifyVector = TRUE)
@@ -9,13 +9,13 @@ components <-
 usethis::use_data(components, overwrite = TRUE)
 
 segment_lookup <-
-  "https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/segment-lookup.json"
+  "https://github.com/streetmix/streetmix/raw/refs/heads/main/client/src/segments/segment-lookup.json"
 
 segment_lookup <-
   jsonlite::read_json(segment_lookup, simplifyVector = TRUE)
 
 people <-
-  "https://raw.githubusercontent.com/streetmix/streetmix/main/assets/scripts/segments/people.json"
+  "https://github.com/streetmix/streetmix/raw/refs/heads/main/client/src/segments/people.json"
 
 people <-
   jsonlite::read_json(people, simplifyVector = TRUE)
