@@ -1,33 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/404.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/reference/components.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/reference/get_street.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/reference/illustrations.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/reference/people.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/streetmixr/reference/streetmixr-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://elipousson.github.io/streetmixr/404.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/LICENSE.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/authors.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/index.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/reference/components.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/reference/get_street.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/reference/illustrations.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/reference/index.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/reference/people.html</loc></url>
+<url><loc>https://elipousson.github.io/streetmixr/reference/streetmixr-package.html</loc></url>
 </urlset>
+

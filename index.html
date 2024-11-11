@@ -5,59 +5,43 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Support access to the Streetmix API and share data on
-    Streetmix illustrations and components for analysis or reuse
-    (consistent with license requirements).">
 <title>Access the Streetmix API • streetmixr</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access the Streetmix API">
-<meta property="og:description" content="Support access to the Streetmix API and share data on
-    Streetmix illustrations and components for analysis or reuse
-    (consistent with license requirements).">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access the Streetmix API">
+<meta name="description" content="Support access to the Streetmix API and share data on Streetmix illustrations and components for analysis or reuse (consistent with license requirements).">
+<meta property="og:description" content="Support access to the Streetmix API and share data on Streetmix illustrations and components for analysis or reuse (consistent with license requirements).">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="index.html">streetmixr</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="reference/index.html">Reference</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/elipousson/streetmixr/" aria-label="github">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+</form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/elipousson/streetmixr/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-home">
 <div class="row">
@@ -149,14 +133,14 @@
 <code class="sourceCode R"><span><span class="fu"><a href="reference/get_street.html">get_street</a></span><span class="op">(</span>user_id <span class="op">=</span> <span class="st">"eli.pousson"</span><span class="op">)</span><span class="op">$</span><span class="va">streets</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">creatorIp</span>, <span class="va">data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
-<col width="16%">
-<col width="5%">
-<col width="3%">
-<col width="19%">
-<col width="5%">
-<col width="16%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
 <col width="11%">
 <col width="11%">
 <col width="11%">
@@ -174,6 +158,17 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">7d78276e-d612-4949-a1fc-bff7a6264b32</td>
+<td align="right">11</td>
+<td align="left">ACTIVE</td>
+<td align="left">Sample Mixed Use Path with Green Space</td>
+<td align="left">eli.pousson</td>
+<td align="left">48094c9a-d019-4495-b183-df202da0f2d9</td>
+<td align="left">2023-05-04T19:42:15.333Z</td>
+<td align="left">2024-04-18T19:43:50.532Z</td>
+<td align="left">2024-04-18T19:43:50.741Z</td>
+</tr>
+<tr class="even">
 <td align="left">2c3905bf-1729-492b-8741-e5ad1298a4b6</td>
 <td align="right">10</td>
 <td align="left">ACTIVE</td>
@@ -184,7 +179,7 @@
 <td align="left">2023-10-19T20:37:28.278Z</td>
 <td align="left">2023-10-19T20:37:28.420Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">587bc700-3159-11ec-896a-75aec116883c</td>
 <td align="right">6</td>
 <td align="left">ACTIVE</td>
@@ -195,7 +190,7 @@
 <td align="left">2021-10-20T03:53:54.809Z</td>
 <td align="left">2023-07-31T14:22:04.892Z</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">48094c9a-d019-4495-b183-df202da0f2d9</td>
 <td align="right">9</td>
 <td align="left">ACTIVE</td>
@@ -206,7 +201,7 @@
 <td align="left">2023-07-31T14:21:52.653Z</td>
 <td align="left">2023-07-31T14:21:52.812Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">13b8567a-223d-4fde-a7ed-100375e1ddc9</td>
 <td align="right">8</td>
 <td align="left">ACTIVE</td>
@@ -217,7 +212,7 @@
 <td align="left">2023-05-04T17:29:57.796Z</td>
 <td align="left">2023-05-04T19:42:15.927Z</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">b26529c0-c1ad-11ec-877c-abfad556cfc6</td>
 <td align="right">7</td>
 <td align="left">ACTIVE</td>
@@ -228,7 +223,7 @@
 <td align="left">2022-04-21T20:00:30.820Z</td>
 <td align="left">2022-04-28T18:59:48.282Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">32bfe550-3159-11ec-896a-75aec116883c</td>
 <td align="right">5</td>
 <td align="left">ACTIVE</td>
@@ -239,7 +234,7 @@
 <td align="left">2021-10-20T03:52:51.511Z</td>
 <td align="left">2021-10-20T03:52:51.654Z</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">7e06c6b0-4793-11eb-a7cc-b5a263b6bae7</td>
 <td align="right">4</td>
 <td align="left">ACTIVE</td>
@@ -250,7 +245,7 @@
 <td align="left">2020-12-26T16:00:36.548Z</td>
 <td align="left">2020-12-26T16:00:37.959Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">46ce4c10-918e-11ea-98a3-a330b250095e</td>
 <td align="right">3</td>
 <td align="left">ACTIVE</td>
@@ -261,7 +256,7 @@
 <td align="left">2020-05-09T00:44:44.793Z</td>
 <td align="left">2020-05-09T00:44:45.273Z</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">88ee8bf0-90d5-11ea-946a-abc0544fc0fc</td>
 <td align="right">2</td>
 <td align="left">ACTIVE</td>
@@ -272,7 +267,7 @@
 <td align="left">2020-05-08T02:42:18.875Z</td>
 <td align="left">2020-05-09T00:33:46.378Z</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">33f06dd0-90d5-11ea-946a-abc0544fc0fc</td>
 <td align="right">1</td>
 <td align="left">ACTIVE</td>
@@ -331,21 +326,19 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by Eli Pousson.</p>
+  <p>Developed by Eli Pousson.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
